@@ -1,0 +1,100 @@
+/* Reset de estilos para eliminar los márgenes y el padding predeterminados */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos para el navbar */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between; /* Alinea las opciones del menú a la derecha */
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul li:hover {
+  background-color: #555;
+}
+
+/* Estilos para el submenú */
+.submenu {
+  display: none; /* Oculta el submenú por defecto */
+  position: absolute;
+  background-color: #f8f8f8;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.nav-item:hover .submenu {
+  display: block; /* Muestra el submenú al hacer hover en la opción del menú */
+}
+
+/* Estilos específicos para páginas */
+.page-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form input[type="checkbox"] {
+  width: auto;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #555;
+}
