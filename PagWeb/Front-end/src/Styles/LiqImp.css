@@ -1,0 +1,78 @@
+Aun no se esta usando 
+/* Estilos generales para la página de Liquidación de Impuestos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenedor principal */
+  div {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #999191;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(20, 58, 116, 0.1);
+  }
+  
+  /* Título principal */
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el formulario de liquidación */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: rgb(30, 211, 7);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Resultados de la liquidación */
+  .resultados {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eb15ff;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .resultados p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .resultados p span {
+    font-weight: bold;
+    color: #007bff;
+  } 

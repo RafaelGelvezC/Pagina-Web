@@ -1,0 +1,92 @@
+/* Estilos generales para el navbar */
+nav {
+  background-color: #2492ffc0; /* Fondo translúcido azul para el navbar */
+  padding: 10px 20px; /* Espaciado interno (padding) en el navbar */
+  display: flex; /* Usa flexbox para organizar los elementos dentro del navbar */
+  justify-content: space-between; /* Distribuye el contenido entre los extremos del navbar */
+  align-items: center; /* Centra verticalmente los elementos dentro del navbar */
+}
+
+nav div {
+  display: flex; /* Usa flexbox para alinear los elementos dentro del contenedor div */
+  align-items: center; /* Centra verticalmente los elementos dentro del div */
+}
+
+nav div > div {
+  color: rgb(153, 0, 255); /* Color púrpura para el texto del logo u otros elementos */
+  font-size: 24px; /* Tamaño de fuente grande para el texto */
+  font-weight: bold; /* Texto en negrita para darle énfasis */
+}
+
+nav ul {
+  list-style: none; /* Elimina los puntos de las listas (estilo de lista) */
+  margin: 0; /* Elimina el margen predeterminado del ul */
+  padding: 0; /* Elimina el padding predeterminado del ul */
+  display: flex; /* Usa flexbox para organizar los elementos de la lista en fila */
+  gap: 10px; /* Espacio entre los elementos de la lista */
+}
+
+nav li {
+  position: relative; /* Permite posicionar elementos absolutamente dentro de este li */
+  color: rgb(245, 2, 2); /* Color rojo para el texto de los elementos del menú */
+  font-size: 18px; /* Tamaño de fuente de los elementos del menú */
+}
+
+/* Estilo para los enlaces de productos, trámites fáciles y cultura tributaria */
+nav li a, nav li span {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: rgb(255, 187, 0); /* Color amarillo para los enlaces */
+  padding: 8px 12px; /* Espaciado interno para hacer los enlaces más grandes y fáciles de hacer clic */
+  transition: background-color 0.3s, color 0.3s; /* Animación suave para cambios de color de fondo y texto */
+}
+
+nav li a:hover, nav li span:hover {
+  background-color: #34495ed2; /* Fondo gris oscuro cuando el cursor pasa sobre el enlace */
+  border-radius: 4px; /* Bordes redondeados en el fondo del enlace */
+}
+
+/* Estilos para los dropdowns (menús desplegables) */
+nav ul ul {
+  position: absolute; /* Posiciona el submenú justo debajo del menú principal */
+  top: 100%; /* Alinea el submenú justo debajo del elemento padre */
+  left: 0; /* Alinea el submenú con el borde izquierdo del elemento padre */
+  background-color: #a4f70ad8; /* Fondo gris oscuro para el submenú */
+  padding: 10px 0; /* Espaciado interno en el submenú */
+  list-style: none; /* Elimina los puntos de las listas */
+  margin: 0; /* Elimina el margen predeterminado */
+  border-radius: 4px; /* Bordes redondeados para el submenú */
+  display: none; /* Oculta el submenú por defecto */
+  z-index: 1000; /* Asegura que el submenú se superponga a otros elementos */
+}
+
+nav ul li:hover ul {
+  display: block; /* Muestra el submenú cuando se pasa el ratón por encima del elemento del menú principal */
+}
+
+nav ul ul li {
+  width: 200px; /* Ancho fijo para los elementos del submenú */
+  padding: 8px 12px; /* Espaciado interno para los elementos del submenú */
+}
+
+nav ul ul li a {
+  color: white; /* Color de texto blanco para los enlaces del submenú */
+  padding: 8px 12px; /* Espaciado interno en los enlaces del submenú */
+  display: block; /* Asegura que los enlaces ocupen todo el ancho disponible */
+}
+
+nav ul ul li a:hover {
+  background-color: #19d4af; /* Fondo verde azulado cuando el cursor pasa sobre un enlace del submenú */
+  color: white; /* Asegura que el texto permanezca blanco cuando se selecciona */
+  border-radius: 4px; /* Bordes redondeados para el fondo del enlace en el submenú */
+}
+
+/* Estilo para el enlace de "Inicio" e "Inicio de sesión" */
+nav li a:last-child {
+  background-color: #ca504200; /* Fondo transparente con un tinte rojo */
+  color: rgb(0, 255, 34); /* Color verde brillante para el texto */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+nav li a:last-child:hover {
+  background-color: #1a1c27af; /* Fondo gris oscuro al pasar el cursor sobre el enlace */
+}

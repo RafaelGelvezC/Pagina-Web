@@ -6,19 +6,19 @@ const ResultadoInteres = ({ titulo, impuesto, sancion, interes, total }) => {
       <h3>{titulo}</h3>
       <div>
         <label>Impuesto:</label>
-        <span>{impuesto}</span>
-      </div>
-      <div>
-        <label>Sanción:</label>
-        <span>{sancion}</span>
+        <span>{impuesto.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
       </div>
       <div>
         <label>Interés:</label>
-        <span>{interes}</span>
+        <span>{interes.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
+      </div>
+      <div>
+        <label>Sanción:</label>
+        <span>{sancion.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
       </div>
       <div>
         <label>Total:</label>
-        <span>{total}</span>
+        <span>{total.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
       </div>
     </div>
   );
@@ -33,3 +33,4 @@ ResultadoInteres.propTypes = {
 };
 
 export default ResultadoInteres;
+

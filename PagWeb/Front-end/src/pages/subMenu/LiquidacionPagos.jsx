@@ -1,16 +1,22 @@
 import { useState } from 'react';
 import FormularioLiquidacion from './FormularioLiquidacion';
 import ResultadoInteres from './ResultadoInteres';
+import { calcularInteres } from '../../JSC/calculadoraInteres';
 
 const LiquidacionPagos = () => {
   const [result, setResult] = useState(null);
 
   const handleSubmit = (formData) => {
-    const impuesto = parseFloat(formData.valorImpuesto);
-    const sancion = formData.tieneSancion === 'si' ? parseFloat(formData.valorSancion) : 0;
-    const interes = impuesto * 0.05 + sancion * 0.1;
-    const total = impuesto + sancion + interes;
+    const impuesto = parseFloat(formData.valorImpuesto) || 0;
+    const sancion = formData.tieneSancion === 'si' ? parseFloat(formData.valorSancion) || 0 : 0;
+    const fechaPago = formData.fechaPago;
 
+    if (isNaN(impuesto) || isNaN(sancion)) {
+      console.error("Valores de impuesto o sanción no válidos.");
+      return;
+    }
+
+    const { interes, total } = calcularInteres(impuesto, sancion, fechaPago);
     setResult({ impuesto, sancion, interes, total });
   };
 
@@ -20,27 +26,16 @@ const LiquidacionPagos = () => {
       <FormularioLiquidacion onSubmit={handleSubmit} />
       {result && (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <ResultadoInteres 
-            titulo="Calcular Interés"
-            impuesto={result.impuesto} 
-            sancion={result.sancion} 
-            interes={result.interes} 
-            total={result.total} 
-          />
-          <ResultadoInteres 
-            titulo="Aplicación"
-            impuesto={result.impuesto} 
-            sancion={result.sancion} 
-            interes={result.interes} 
-            total={result.total} 
-          />
-          <ResultadoInteres 
-            titulo="Distribución"
-            impuesto={result.impuesto} 
-            sancion={result.sancion} 
-            interes={result.interes} 
-            total={result.total} 
-          />
+          {['Calcular Interés', 'Aplicación', 'Distribución'].map((titulo) => (
+            <ResultadoInteres 
+              key={titulo}
+              titulo={titulo}
+              impuesto={result.impuesto} 
+              sancion={result.sancion} 
+              interes={result.interes} 
+              total={result.total} 
+            />
+          ))}
         </div>
       )}
     </div>
