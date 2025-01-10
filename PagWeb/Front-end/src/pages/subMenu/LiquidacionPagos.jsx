@@ -6,24 +6,33 @@ import { calcularInteres } from '../../JSC/calculadoraInteres';
 const LiquidacionPagos = () => {
   const [result, setResult] = useState(null);
 
+  // Función para manejar el envío del formulario
   const handleSubmit = (formData) => {
-    const impuesto = parseFloat(formData.valorImpuesto) || 0;
-    const sancion = formData.tieneSancion === 'si' ? parseFloat(formData.valorSancion) || 0 : 0;
-    const fechaPago = formData.fechaPago;
-
-    if (isNaN(impuesto) || isNaN(sancion)) {
-      console.error("Valores de impuesto o sanción no válidos.");
-      return;
-    }
-
-    const { interes, total } = calcularInteres(impuesto, sancion, fechaPago);
-    setResult({ impuesto, sancion, interes, total });
+    const { interes, sancionOriginal, sancionCalculada, total } = calcularInteres(formData.fechaPago);
+    
+    setResult({ 
+      impuesto: parseFloat(formData.valorImpuesto),
+      sancionOriginal,
+      sancionCalculada,
+      interes,
+      total
+    });
   };
+
+  // Función para manejar el reinicio del formulario
+  const handleReset = () => {
+    setResult(null); // Resetea el estado de los resultados
+    console.log('Formulario y resultados reiniciados');
+  };
+
 
   return (
     <div>
       <h2>Liquidación de Pagos</h2>
-      <FormularioLiquidacion onSubmit={handleSubmit} />
+      <FormularioLiquidacion 
+          onSubmit={handleSubmit}
+          onReset={handleReset}  // Asegúrate de que esto está presente
+      />
       {result && (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {['Calcular Interés', 'Aplicación', 'Distribución'].map((titulo) => (

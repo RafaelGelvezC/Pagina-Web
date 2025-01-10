@@ -25,8 +25,6 @@ body {
 
 /* Estilos del formulario */
 form {
-  display: flex;
-  flex-direction: column;
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
@@ -50,22 +48,56 @@ div {
 }
 
 div:hover {
-  background: #ffffff;
+  background: #ddd5d5;
   box-shadow: var(--box-shadow);
 }
 
-/* Grupos específicos */
+.resultado-interes {
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(20, 58, 116, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resultado-interes:hover {
+  background-color: #f0f8ff; /* Cambia el color de fondo al pasar el mouse */
+  box-shadow: 0 0 15px rgba(20, 58, 116, 0.2); /* Incrementa la sombra */
+}
+
+/* Contenedores de grupos */
 #año-periodo-tipo-impuesto,
-#nit-dv,
-#fechas,
-#tipo-fecha {
+#nit-dv-razon,
+#valor-fecha-pago,
+#sancion-detalles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  align-items: center;
+  margin-bottom: 1.5rem;
   padding: 1.5rem;
-  background: white;
-  border: 1px solid #e1e1e1;
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed);
+}
+
+/* Contenedor de campos individuales */
+#año-periodo-tipo-impuesto > div,
+#nit-dv-razon > div,
+#valor-fecha-pago > div,
+#sancion-detalles > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor de sanción */
+#tiene-sancion {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed);
 }
 
 /* Estilos para inputs y selects */
@@ -97,10 +129,15 @@ label {
 /* Radio buttons personalizados */
 .radio-group {
   display: flex;
-  gap: 1.5rem;
-  justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  margin: 0;
+  cursor: pointer;
 }
 
 .radio-group input[type="radio"] {
@@ -108,35 +145,49 @@ label {
   margin-right: 0.5rem;
 }
 
-.radio-group label {
+/* Estilos de botones */
+.botones-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  cursor: pointer;
-}
-
-/* Botón de envío */
-#submit-button {
+  gap: 1rem;
   margin-top: 2rem;
 }
 
-#submit-button button {
-  width: auto;
-  min-width: 200px;
-  padding: 1rem 2rem;
-  background: var(--primary-color);
+/* Estilo del botón Calcular */
+.boton-calcular {
+  background-color: var(--primary-color);
   color: white;
+  padding: 1rem 2rem;
   border: none;
   border-radius: var(--border-radius);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
   transition: all var(--transition-speed);
 }
 
-#submit-button button:hover {
-  background: #357abd;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.boton-calcular:hover {
+  background-color: #357abd;
+  box-shadow: var(--box-shadow);
+}
+
+/* Estilo del botón Generar */
+.boton-generar {
+  background-color: #6c757d;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.boton-generar:hover {
+  background-color: #5a6268;
+  box-shadow: var(--box-shadow);
 }
 
 #submit-button button:active {
@@ -148,14 +199,26 @@ label {
   form {
     padding: 1rem;
   }
-
   #año-periodo-tipo-impuesto,
-  #nit-dv,
-  #fechas,
-  #tipo-fecha {
+  #nit-dv-razon,
+  #valor-fecha-pago,
+  #sancion-detalles {
     grid-template-columns: 1fr;
   }
 
+  #razon-social {
+    grid-column: auto;
+  }
+
+  .botones-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
   .radio-group {
     flex-direction: column;
     align-items: flex-start;

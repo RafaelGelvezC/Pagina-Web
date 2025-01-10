@@ -1,35 +1,26 @@
-import PropTypes from 'prop-types';
-
-const ResultadoInteres = ({ titulo, impuesto, sancion, interes, total }) => {
+const ResultadoInteres = ({ 
+  titulo, 
+  impuesto, 
+  sancionOriginal,
+  sancionCalculada, 
+  interes, 
+  total 
+}) => {
   return (
-    <div>
+    <div className="resultado-interes">
       <h3>{titulo}</h3>
       <div>
-        <label>Impuesto:</label>
-        <span>{impuesto.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
-      </div>
-      <div>
-        <label>Interés:</label>
-        <span>{interes.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
-      </div>
-      <div>
-        <label>Sanción:</label>
-        <span>{sancion.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
-      </div>
-      <div>
-        <label>Total:</label>
-        <span>{total.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</span>
+        <p>Impuesto: ${impuesto.toLocaleString()}</p>
+        {sancionOriginal > 0 && (
+          <>
+            <p>Sanción Actualizada: ${sancionCalculada.toLocaleString()}</p>
+          </>
+        )}
+        <p>Intereses: ${interes.toLocaleString()}</p>
+        <p><strong>Total a Pagar: ${total.toLocaleString()}</strong></p>
       </div>
     </div>
   );
-};
-
-ResultadoInteres.propTypes = {
-  titulo: PropTypes.string.isRequired,
-  impuesto: PropTypes.number.isRequired,
-  sancion: PropTypes.number.isRequired,
-  interes: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired
 };
 
 export default ResultadoInteres;
